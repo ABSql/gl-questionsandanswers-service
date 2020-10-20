@@ -15,8 +15,14 @@ const productSchema = new Schema (
           default: Date.now,
         },
         asker_name: String,
-        question_helpfulness: Number,
-        reported: Number,
+        question_helpfulness: {
+          type: Number,
+          default: 0,
+        },
+        reported: {
+          type: Number,
+          default: 0,
+        },
         answers: [
           {
             id: ObjectId,
@@ -27,8 +33,14 @@ const productSchema = new Schema (
               default: Date.now,
             },
             answerer_name: String,
-            helpfulness: Number,
-            reported: Number,
+            helpfulness: {
+              type: Number,
+              default: 0,
+            },
+            reported: {
+              type: Number,
+              default: 0,
+            },
             photos: [
               {
                 _id: false,
