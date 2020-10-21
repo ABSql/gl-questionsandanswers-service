@@ -1,9 +1,12 @@
+const newrelic = require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = 9002;
+const cors = require('cors')
 const Product = require('./API/models/product.js');
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('../client/dist'));
@@ -12,9 +15,7 @@ const { ObjectId } = require('mongodb');
 
 // Requests he
 
-const id = mongoose.Types.ObjectId();
 mongoose.connect("mongodb://localhost:27017/SDC");
-
 
 app.get('/qa/:product_id', (req, res) => {
   Product.findById(req.params.product_id)
@@ -27,7 +28,7 @@ app.get('/qa/:product_id', (req, res) => {
       let nonReportedA = [];
       for (let i = 0; i < dbResponse.questions.length; i++) {
         if (!dbResponse.questions[i].reported) {
-          let answersArray = dbResponse.questions[i].answers
+          let answersArray = dbResponse.questions[i].answers;
           for (let j = 0; j < answersArray.length; j++) {
             if (!answersArray[j].reported) {
               nonReportedA.push(answersArray[j]);
@@ -53,7 +54,7 @@ app.get('/qa/:product_id', (req, res) => {
       res.send(toSend);
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
       res.send(
         {
           product_id: req.params.product_id,
@@ -114,7 +115,8 @@ app.post('/qa/:product_id', (req, res) => {
       product.save();
       res.sendStatus(201);
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err)
       res.sendStatus(400);
     });
 });
