@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
-const PORT = 9002;
+const PORT = 80;
 const cors = require('cors')
 const Product = require('./API/models/product.js');
 app.use(cors());
