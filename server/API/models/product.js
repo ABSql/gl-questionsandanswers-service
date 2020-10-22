@@ -54,14 +54,14 @@ const productSchema = new Schema (
   },
 );
 
-productSchema.pre('findOne', function() {
-  this._startTime = Date.now();
-});
+// productSchema.pre('findOne', function() {
+//   this._startTime = Date.now();
+// });
 
-productSchema.post('findOne', function() {
-  if (this._startTime != null) {
-    console.log('Runtime in MS: ', Date.now() - this._startTime);
-  }
-});
+// productSchema.post('findOne', function() {
+//   if (this._startTime != null) {
+//     console.log('Runtime in MS: ', Date.now() - this._startTime);
+//   }
+// });
 
 module.exports = mongoose.model('Product', productSchema);

@@ -1,4 +1,4 @@
-const newrelic = require('newrelic');
+// const newrelic = require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -15,7 +15,7 @@ const { ObjectId } = require('mongodb');
 
 // Requests he
 
-mongoose.connect("mongodb://localhost:27017/SDC");
+mongoose.connect("mongodb+srv://aseracuse:galvanize@cluster0.tbnmt.mongodb.net/SDC?retryWrites=true&w=majority");
 
 app.get('/qa/:product_id', (req, res) => {
   Product.findById(req.params.product_id)
@@ -49,6 +49,7 @@ app.get('/qa/:product_id', (req, res) => {
       }
       let toSend = {
         product_id: dbResponse._id,
+        // results: dbResponse.questions.splice(page - 1 * count, count)
         results: nonReportedQ.splice(page - 1 * count, count),
       };
       res.send(toSend);

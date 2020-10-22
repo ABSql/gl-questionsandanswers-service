@@ -1,7 +1,7 @@
 config: 
   target: "http://localhost:9002"
   http:
-    pool: 10
+    pool: 5
   phases:
     # - duration: 10
     #   arrivalRate: 10
@@ -11,14 +11,16 @@ config:
     #   rampTo: 25
     #   name: Ramp up load
     - duration: 60
-      arrivalRate: 20
+      arrivalRate: 100
       name: Sustained load
     
 scenarios:
     - flow:
         - loop:
             - get:
-                url: "/qa/5f8f13217f4286946c79f912"
-          count: 200
+                url: "/qa/5f8f13207f4286946c79e508"
+            # - post:
+            #     url: "/qa/5f8f13207f4286946c79e508"
+          count: 10
       
 

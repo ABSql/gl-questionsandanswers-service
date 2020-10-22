@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import ProductQuestion from './productQuestion.jsx';
 import HelpfulAnswer from './answerHelpful.jsx';
-import ProductPhotos from './ProductAnswerPhotos.jsx';
+import ProductPhotos from './productAnswerPhotos.jsx';
 
 // eslint-disable-next-line no-unused-vars
 const ProductAnswer = ({ answer }) => {

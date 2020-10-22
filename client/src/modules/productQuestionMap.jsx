@@ -10,7 +10,7 @@ import AddQuestion from './addQuestion.jsx';
 
 
 const ProductQuestionMap = () => {
-  const [productId] = useState(3);// this will be whatever product Id is being viewed
+  const [productId] = useState('5f8f13217f4286946c79f912');// this will be whatever product Id is being viewed
   const [productQuestionObject, setProductQuestionObject] = useState([]);
 
   useEffect(() => {
