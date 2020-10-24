@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
-const PORT = 3000;
+const PORT = 9002;
 const cors = require('cors')
 const Product = require('./API/models/product.js');
 app.use(cors());
@@ -15,7 +15,7 @@ const { ObjectId } = require('mongodb');
 
 // Requests he
 
-mongoose.connect("mongodb+srv://aseracuse:galvanize@cluster0.tbnmt.mongodb.net/SDC?retryWrites=true&w=majority");
+mongoose.connect("mongodb://andy:allie%20is%20a%20bitch@3.137.193.25:27017/SDC");
 
 app.get('/qa/:product_id', (req, res) => {
   Product.findById(req.params.product_id)
