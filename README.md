@@ -10,10 +10,10 @@
 - Implimented horizontal scaling and caching using an NGINX load balancer
 
 ## Screenshot of Legacy Frontend
-![Imgur](https://i.imgur.com/hOjwdS8.png?1)
+![Imgur](https://i.imgur.com/l40wj04.png)
 
 ## Screenshot of Load Test
-![Screenshot](https://imgur.com/hOjwdS8)
+![Imgur](https://i.imgur.com/hOjwdS8.png?1)
 
 ## Usage
 
